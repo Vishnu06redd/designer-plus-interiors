@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Designer Plus Interiors
 
-## Getting Started
+Premium marketing website for Designer Plus Interiors, a turnkey interior
+design studio in Bangalore. Built with Next.js (App Router), Tailwind CSS v4,
+and Framer Motion.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack)
+- **Tailwind CSS v4** — theme tokens defined in `src/app/globals.css`
+- **Framer Motion** — scroll reveals, page transitions, micro-interactions
+- **Lenis** — smooth scrolling
+- **lucide-react** — general iconography (brand/social icons are custom SVGs
+  in `src/components/ui/social-icons.tsx`, since lucide no longer ships
+  trademarked brand marks)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build (statically prerenders every route)
+npm run start   # serve the production build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+  app/                # routes (App Router)
+  components/
+    layout/            # header, footer, floating contact, smooth scroll
+    ui/                # shared primitives (Reveal, LogoMark, PageHero, ...)
+    home/               # home-page-only sections
+    faq/ contact/       # page-specific components
+  data/                # site.ts — services, nav, stats, process, contact info
+  hooks/               # use-lenis.ts
+  lib/                 # utils.ts (cn helper)
+docs/                  # Brand-Guidelines, SEO-Strategy, Content-Guide, Deployment
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Current status
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This is the **foundation build**: a fully realized, production-quality Home
+page plus real (non-lorem) About, Services (index + 10 detail pages),
+Portfolio, Process, Testimonials, FAQ, and Contact pages — all with working
+SEO metadata, JSON-LD, sitemap, and an animated brand system derived from the
+logo. See `docs/Content-Guide.md` for exactly what's placeholder content
+(stock imagery, illustrative stats) versus real, publishable copy, and for
+the roadmap of sections not yet built (materials showcase, before/after
+slider, individual project case-study pages, real video testimonials).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `docs/Brand-Guidelines.md` for the color/type system and
+`docs/Deployment.md` for what to update before going live.

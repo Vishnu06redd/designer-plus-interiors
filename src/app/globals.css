@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Derived directly from the Designer Plus Interiors mark */
+  --color-burgundy: #5c0f22;
+  --color-burgundy-light: #7a1730;
+  --color-crimson: #d92818;
+  --color-crimson-light: #ef4a2c;
+  --color-orange: #f2811e;
+  --color-orange-light: #f9a13a;
+  --color-gold: #f3b53d;
+  --color-charcoal: #15130f;
+  --color-charcoal-soft: #211d17;
+  --color-ivory: #faf7f2;
+  --color-white: #ffffff;
+
+  --background: var(--color-ivory);
+  --foreground: var(--color-charcoal);
 }
 
 @theme inline {
+  --color-burgundy: var(--color-burgundy);
+  --color-burgundy-light: var(--color-burgundy-light);
+  --color-crimson: var(--color-crimson);
+  --color-crimson-light: var(--color-crimson-light);
+  --color-orange: var(--color-orange);
+  --color-orange-light: var(--color-orange-light);
+  --color-gold: var(--color-gold);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-soft: var(--color-charcoal-soft);
+  --color-ivory: var(--color-ivory);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-draw-line: draw-line 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: var(--line-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-crimson);
+  color: var(--color-ivory);
+}
+
+.text-balance {
+  text-wrap: balance;
 }
