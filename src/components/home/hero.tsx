@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
@@ -9,25 +8,20 @@ import { LogoMark } from "@/components/ui/logo-mark";
 export function Hero() {
   return (
     <section className="relative flex h-[100svh] min-h-[720px] w-full items-center justify-center overflow-hidden bg-charcoal">
-      <Image
-        src="/images/hero-interior.jpg"
-        alt="Cinematic luxury living room with warm ambient lighting"
-        fill
-        priority
-        className="object-cover opacity-45"
-      />
+      <video
+        aria-hidden="true"
+        autoPlay
+        muted
+        playsInline
+        preload="metadata"
+        poster="/images/hero-interior.jpg"
+        className="absolute inset-0 h-full w-full object-cover opacity-50 brightness-[0.65]"
+      >
+        <source src="/videos/hero-interior.mp4" type="video/mp4" />
+      </video>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/70 to-charcoal" />
-
-      <div
-        className="absolute inset-0 opacity-[0.14]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(250,247,242,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(250,247,242,0.5) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
-          maskImage: "linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)",
-        }}
-      />
+      <div className="absolute inset-0 bg-charcoal/35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/80" />
 
       <motion.div
         aria-hidden
